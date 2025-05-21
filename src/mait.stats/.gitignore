@@ -1,0 +1,63 @@
+# Carpertas de compilación
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio Code
+.vscode/
+
+# Paquetes NuGet descargados localmente
+*.nupkg
+packages/
+*.snupkg
+
+# Archivos de configuración de usuario
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Respaldo de archivos temporales
+*.tmp
+*.bak
+~$*
+
+# Archivos de publicación y despliegue
+.publish/
+out/
+
+# Archivos de locking
+project.lock.json
+project.assets.json
+
+# Rider / JetBrains (en caso de usarlo)
+.idea/
+*.sln.iml
+*.csproj.user
+*.csproj.DotSettings
+*.csproj.DotSettings.user
+
+# Respaldo de test
+TestResult/
+**/TestResults/
+
+# Logs
+*.log
+*.tlog
+
+# Configuraciones de Python si trabajas con scripts (opcional)
+__pycache__/
+*.pyc
+
+# DotNet 5+ DevCerts
+*.pfx
+*.p12
+
+# Configuración global de estilo/format
+.stylecop
+.editorconfig
+
+# Archivos generados por VS o MSBuild
+*.vcxproj.user
+*.vcxproj.filters
+*.vcxproj.integration.openthread.cache
+*.vcxproj.integration.openthread.json
