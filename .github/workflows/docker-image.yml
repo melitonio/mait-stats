@@ -3,7 +3,7 @@ name: Publish Docker Image
 on:
   push:
     branches:
-      - master # Cambia 'main' si utilizas otra rama
+      - main # Cambia 'main' si utilizas otra rama
 
 jobs:
   build-and-push:
