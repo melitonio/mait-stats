@@ -24,7 +24,7 @@ jobs:
       # Paso 5: Construir la imagen Docker del Backend
       - name: Build Service Docker image
         run: |
-          docker build -t melitonio/stats:latest ./src/MAIT.DocumentSeriesService
+          docker build -t melitonio/stats:latest ./src/mait.stats
 
       # Paso 6: Subir la imagen del Backend a Docker Hub
       - name: Push Service Docker image
