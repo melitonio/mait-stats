@@ -11,7 +11,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="8.1.1" />
     
 
-    <PackageReference Include="MAIT.Dto" Version="2.10.151" />
+    <PackageReference Include="MAIT.Dto" Version="2.10.210" />
   </ItemGroup>
 
   <ItemGroup>
