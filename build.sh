@@ -1,15 +1,19 @@
 #!/bin/bash
 set -e
 
+
 APP_NAME="$1"
 TAG="$2"
 IMAGE="registry.mait.gq/${APP_NAME}:${TAG}"
 
-echo "🛠️ Construyendo imagen $IMAGE"
-docker build ./src/mait.stats/ -t $IMAGE
+# Crear o usar el builder existente
+if ! docker buildx inspect mybuilder > /dev/null 2>&1; then
+    docker buildx create --use --name mybuilder
+else
+    docker buildx use mybuilder
+fi
 
-echo "📤 Subiendo imagen a $IMAGE"
-docker push $IMAGE
+docker buildx inspect --bootstrap
+docker buildx build --platform linux/amd64 --push -t $IMAGE ./src/mait.stats/
 
-echo "🧹 Eliminando imagen local $IMAGE"
-docker rmi $IMAGE || true
+echo "Imagen construida y subida: $IMAGE"
