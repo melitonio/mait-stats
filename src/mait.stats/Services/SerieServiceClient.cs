@@ -1,4 +1,3 @@
-using MAIT.Dto.Serie;
 using MAIT.Interfaces;
 
 namespace Services;
