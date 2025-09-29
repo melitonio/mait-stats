@@ -24,20 +24,5 @@ public class SerieServiceClient(HttpClient http, ILogger<SerieServiceClient> log
             return -1;
         }
     }
-    
-    public async Task<ICollection<SerieDto>?> GetAllAsync()
-    {
-        try
-        {
-            var response = await _http.GetAsync($"/series");
-            response.EnsureSuccessStatusCode();
-            var result = await response.Content.ReadFromJsonAsync<ResultModel<SerieDto[]>>();
-            return result.Data;
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error al obtener las series");
-            return [];
-        }
-    }
+
 }

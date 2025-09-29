@@ -1,5 +1,3 @@
-using MAIT.Dto.Funcionario;
-using MAIT.Dto.Serie;
 using MAIT.Interfaces;
 
 namespace Services;
@@ -25,20 +23,5 @@ public class FuncionarioServiceClient(HttpClient http, ILogger<FuncionarioServic
             return -1;
         }
     }
-    
-    public async Task<ICollection<FuncionarioDto>?> GetAllAsync()
-    {
-        try
-        {
-            var response = await _http.GetAsync($"/funcionarios");
-            response.EnsureSuccessStatusCode();
-            var result = await response.Content.ReadFromJsonAsync<ResultModel<FuncionarioDto[]>>();
-            return result.Data;
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error al obtener los funcionarios");
-            return [];
-        }
-    }
+
 }

@@ -24,20 +24,4 @@ public class DocumentServiceClient(HttpClient http, ILogger<DocumentServiceClien
             return -1;
         }
     }
-    
-    public async Task<ICollection<DocumentDto>?> GetAllAsync()
-    {
-        try
-        {
-            var response = await _http.GetAsync($"/documents");
-            response.EnsureSuccessStatusCode();
-            var result = await response.Content.ReadFromJsonAsync<ResultModel<DocumentDto[]>>();
-            return result.Data;
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error al obtener los documentos");
-            return [];
-        }
-    }
 }

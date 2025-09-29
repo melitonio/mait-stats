@@ -19,15 +19,15 @@ public class StatsController
     [HttpGet]
     public async Task<IActionResult> Dashboard()
     {
-        var seriesCount = await _series.GetAllAsync();
-        var funcionariosCount = await _funcionarios.GetAllAsync();
-        var documentosCount = await _documentos.GetAllAsync();
+        var seriesCount = await _series.CountAsync();
+        var funcionariosCount = await _funcionarios.CountAsync();
+        var documentosCount = await _documentos.CountAsync();
 
         return Ok(new
         {
-            Series = seriesCount?.Count,
-            Funcionarios = funcionariosCount?.Count,
-            Documentos = documentosCount?.Count,
+            Series = seriesCount,
+            Funcionarios = funcionariosCount,
+            Documentos = documentosCount,
         });
     }
 
