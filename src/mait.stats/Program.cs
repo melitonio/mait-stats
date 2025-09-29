@@ -1,18 +1,19 @@
 
-using mait.stats.Services;
-using Mait.Stats.Dto;
+using Services;
+using Dto;
+using Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Logging.ClearProviders();
 builder.Logging.AddSimpleConsole(options =>
 {
-    options.SingleLine = false;
+    options.SingleLine = true;
     options.TimestampFormat = "yyyy-MM-dd HH:mm:ss ";
     options.ColorBehavior = Microsoft.Extensions.Logging.Console.LoggerColorBehavior.Enabled;
 });
 
-builder.Services.AddHttpClient<SerieSeriveClient>(client =>
+builder.Services.AddHttpClient<SerieServiceClient>(client =>
 {
     var options = builder.Configuration.GetSection(nameof(ClientsOptions)).Get<ClientsOptions>();
     client.BaseAddress = new Uri(options!.Series);
@@ -65,14 +66,6 @@ if (app.Environment.IsDevelopment() || app.Environment.IsStaging())
     });
 }
 
-var serive = app.Services.GetService<SerieSeriveClient>() ??
-throw new Exception("🟥 SerieSeriveClient no se ha registrado correctamente.");
-
-var logger = app.Services.GetService<ILogger<StatsController>>() ??
-throw new Exception("🟥 Logger no se ha registrado correctamente.");
-
-logger.LogInformation("✅️ SerieSeriveClient ha sido registrado correctamente.");
-logger.LogInformation("✅️ APLICACION INICIADA");
 app.Run();
 
 public partial class Program { } // <--- Esto es clave para que WebApplicationFactory lo encuentre

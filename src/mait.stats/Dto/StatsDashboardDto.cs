@@ -1,4 +1,4 @@
-namespace mait.stats.Dto;
+namespace Dto;
 
 public record class StatsDashboardDto
 {

@@ -1,4 +1,4 @@
-namespace Mait.Stats.Dto;
+namespace Dto;
 
 public record ClientsOptions
 {

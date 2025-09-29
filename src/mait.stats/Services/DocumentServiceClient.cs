@@ -1,7 +1,7 @@
 using MAIT.Dto.Documents;
 using MAIT.Interfaces;
 
-namespace mait.stats.Services;
+namespace Services;
 
 
 public class DocumentServiceClient(HttpClient http, ILogger<DocumentServiceClient> logger)

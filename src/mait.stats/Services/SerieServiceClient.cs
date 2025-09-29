@@ -1,13 +1,13 @@
 using MAIT.Dto.Serie;
 using MAIT.Interfaces;
 
-namespace mait.stats.Services;
+namespace Services;
 
 
-public class SerieSeriveClient(HttpClient http, ILogger<SerieSeriveClient> logger)
+public class SerieServiceClient(HttpClient http, ILogger<SerieServiceClient> logger)
 {
     private readonly HttpClient _http = http;
-    private readonly ILogger<SerieSeriveClient> _logger = logger;
+    private readonly ILogger<SerieServiceClient> _logger = logger;
 
     public async Task<int> CountAsync()
     {

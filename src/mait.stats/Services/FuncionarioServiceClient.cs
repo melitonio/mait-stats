@@ -2,7 +2,7 @@ using MAIT.Dto.Funcionario;
 using MAIT.Dto.Serie;
 using MAIT.Interfaces;
 
-namespace mait.stats.Services;
+namespace Services;
 
 
 public class FuncionarioServiceClient(HttpClient http, ILogger<FuncionarioServiceClient> logger)
