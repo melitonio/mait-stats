@@ -66,6 +66,9 @@ if (app.Environment.IsDevelopment() || app.Environment.IsStaging())
     });
 }
 
+var logger = app.Services.GetRequiredService<ILogger<Program>>();
+logger.LogInformation("✅ Aplicación iniciada");
+
 app.Run();
 
 public partial class Program { } // <--- Esto es clave para que WebApplicationFactory lo encuentre
